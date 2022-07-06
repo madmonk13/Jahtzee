@@ -295,7 +295,7 @@
                 width: 90%;
                 max-width: 24em;
                 height: auto;
-                padding: 1em;
+                padding: 0.25em;
                 background-color: #ccc;
                 border-radius: 1em;
                 box-shadow: 0em 0em 1em #666;
@@ -307,6 +307,8 @@
             .right {
                 flex: 1;
                 padding: 0.5em;
+                justify-content: center;
+                 display: flex;
             }
             .roll,#new {
                 width: 5em;
@@ -322,7 +324,7 @@
             }
             #current {
                 background-color: green;
-                border-radius: 1em;
+                border-radius: 0 1em 1em 0;
             }
             #current input {
                 width: 4em;
@@ -342,8 +344,7 @@
                 border-color: blue;
             }
             #scores tr {
-                /* background-color: #ddd; */
-                background-color: rgba(256,256,256,0.5);
+                background: linear-gradient(90deg,transparent,rgba(255,255,255,0.5));
             }
             #scores tr.clear {
                 background-color: transparent;
