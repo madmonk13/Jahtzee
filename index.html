@@ -11,10 +11,12 @@
             var scoreChoice = 0;
             var yahtzeeBonus = 0;
             var limitRolls = 3;
+            var score = 0;
             function resetGame(){
-                var totalRolls = 0;
-                var scoreChoice = 0;
-                var yahtzeeBonus = 0;
+                totalRolls = 0;
+                scoreChoice = 0;
+                yahtzeeBonus = 0;
+                score = 0;
                 let dice = document.getElementById("current").getElementsByTagName("input");
                 for (var i in dice ){
                     dice[i].className = "die";
@@ -53,7 +55,7 @@
                         }
                     }
                 }
-                alert( "Game Over" );
+                alert( "Game Over\nScore: "+score );
                 document.getElementById("roll").setAttribute("disabled","true");
             }
             function roll(){
@@ -146,6 +148,7 @@
                 document.getElementById('total_1').value = totalFields(['num_1','num_2','num_3','num_4','num_5','num_6']);
                 document.getElementById('total_3').value = totalFields(['kind_3','kind_4','fullHouse','straightSm','straightLg','kind_5','chance','bonus_2']);
                 document.getElementById('grandTotal').value = totalFields(['total_1','total_3']);
+                score = totalFields(['total_1','total_3']);
             }
             function checkUpperBonus(){
                 let total = 0;
@@ -318,6 +321,11 @@
                 border-radius: 0.25em;
                 margin: 1em 0.75em;
             }
+            .roll {
+                height: 5em;
+                border-radius: .5em;
+                margin: 2em 0.75em 1em 0.75em;
+            }
             #new {
                 width: 10em;
                 margin: 1em auto;
@@ -339,9 +347,12 @@
                 float:left;
                 clear:both;
                 margin: 1em;
+                outline: none !important;
+                user-select: none;
             }
             #current input.hold {
-                border-color: blue;
+                border-color: black;
+                background-color:darkred;
             }
             #scores tr {
                 background: linear-gradient(90deg,transparent,rgba(255,255,255,0.5));
@@ -350,10 +361,13 @@
                 background-color: transparent;
             }
             #scores tr th {
-                width: 12em;
+                font-size: 0.8em;
+                font-weight: normal;
+                width: 15em;
             }
             #scores tr th, #scores tr td {
                 padding: 0.25em 0 0.25em 0.25em;
+                text-align: center;
             }
             #scores tr td {
                 width: 32%;
@@ -372,29 +386,29 @@
                 background-color: transparent;
             }
             .die_1 {
-                background: radial-gradient(white,white 15%,black 16%,gray 17%,red 18%,red);
+                background: radial-gradient(white,white 15%,black 16%,gray 17%,transparent 18%,transparent);
             }
             .die_2 {
                 background: radial-gradient(circle at  20% 20%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
-                            radial-gradient(circle at  80% 80%, white,white 10%,black 11%,gray 12%,red 12%,red);
+                            radial-gradient(circle at  80% 80%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent);
             }
             .die_3 {
                 background: radial-gradient(circle at  20% 20%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
                             radial-gradient(white,white 15%,black 16%,gray 17%,transparent 17%,transparent),
-                            radial-gradient(circle at  80% 80%, white,white 10%, black 11%,gray 12%,red 12%,red);
+                            radial-gradient(circle at  80% 80%, white,white 10%, black 11%,gray 12%,transparent 12%,transparent);
             }
             .die_4 {
                 background: radial-gradient(circle at  20% 20%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
                             radial-gradient(circle at  80% 20%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
                             radial-gradient(circle at  20% 80%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
-                            radial-gradient(circle at  80% 80%, white,white 10%,black 11%,gray 12%,red 12%,red);
+                            radial-gradient(circle at  80% 80%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent);
             }
             .die_5 {
                 background: radial-gradient(circle at  20% 20%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
                             radial-gradient(circle at  80% 20%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
                             radial-gradient(white,white 15%,black 16%,gray 17%,black 17%,gray 18%,transparent 18%,transparent),
                             radial-gradient(circle at  20% 80%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
-                            radial-gradient(circle at  80% 80%, white,white 10%,gray 11%, black 12%, red 12%,red);
+                            radial-gradient(circle at  80% 80%, white,white 10%,gray 11%, black 12%, transparent 12%,transparent);
             }
             .die_6 {
                 background: radial-gradient(circle at  20% 20%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
@@ -402,7 +416,7 @@
                             radial-gradient(circle at 20% 50%, white,white 12%,black 13%,gray 14%,transparent 14%,transparent),
                             radial-gradient(circle at 80% 50%, white,white 12%,black 13%,gray 14%,transparent 14%,transparent),
                             radial-gradient(circle at  20% 80%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
-                            radial-gradient(circle at  80% 80%, white,white 10%,black 11%, gray 12%,red 12%,red);
+                            radial-gradient(circle at  80% 80%, white,white 10%,black 11%, gray 12%,transparent 12%,transparent);
             }
             @keyframes rolling {
                 0% { transform: rotate(0deg);}
