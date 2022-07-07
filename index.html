@@ -145,7 +145,7 @@
                 setScoreIfOpen('straightSm',straight(4,dice));
                 setScoreIfOpen('straightLg',straight(5,dice));
                 document.getElementById('bonus_1').value = checkUpperBonus();
-                document.getElementById('total_1').value = totalFields(['num_1','num_2','num_3','num_4','num_5','num_6']);
+                document.getElementById('total_1').value = totalFields(['num_1','num_2','num_3','num_4','num_5','num_6','bonus_1']);
                 document.getElementById('total_3').value = totalFields(['kind_3','kind_4','fullHouse','straightSm','straightLg','kind_5','chance','bonus_2']);
                 document.getElementById('grandTotal').value = totalFields(['total_1','total_3']);
                 score = totalFields(['total_1','total_3']);
@@ -449,9 +449,9 @@
                     <tr><th>Full House:</th><td><input id="fullHouse" readonly><input type="checkbox" onclick="lockField(this,'fullHouse');"></td></tr>
                     <tr><th>Small Straight:</th><td><input id="straightSm" readonly><input type="checkbox" onclick="lockField(this,'straightSm');"></td></tr>
                     <tr><th>Large Straight:</th><td><input id="straightLg" readonly><input type="checkbox" onclick="lockField(this,'straightLg');"></td></tr>
-                    <tr><th>Yahtzee:</th><td><input id="kind_5" readonly><input type="checkbox" onclick="lockField(this,'kind_5');"></td></tr>
+                    <tr><th>Jahtzee:</th><td><input id="kind_5" readonly><input type="checkbox" onclick="lockField(this,'kind_5');"></td></tr>
                     <tr><th>Chance:</th><td><input id="chance" readonly><input type="checkbox" onclick="lockField(this,'chance');"></td></tr>
-                    <tr><th>Yahtzee Bonus:</th><td><input id="bonus_2" readonly set="true"></td></tr>
+                    <tr><th>Jahtzee Bonus:</th><td><input id="bonus_2" readonly set="true"></td></tr>
                     <tr><th>Lower Total:</th><td><input id="total_3" readonly set="true"></td></tr>
                     <tr><th>Grand Total:</th><td><input id="grandTotal" readonly set="true"></td></tr>
                 </table>
