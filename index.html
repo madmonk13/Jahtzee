@@ -128,6 +128,12 @@
             function setScoreIfOpen(id,score){
                 if ( document.getElementById(id).getAttribute("set") != "true" ){
                     document.getElementById(id).value = score;
+                    if (score >= 1 ){
+                        document.getElementById(id).classList.add("scoreOption");
+                    }
+                    else {
+                        document.getElementById(id).classList.remove("scoreOption");
+                    }
                 }
             }
             function checkVals(){
@@ -253,6 +259,7 @@
                     return;
                 }
                 if ( box.checked === true ){
+                    document.getElementById(id).classList.remove("scoreOption");
                     document.getElementById(id).setAttribute("set",true);
                     box.setAttribute("disabled",true);
                     let dice = document.getElementById('current').getElementsByTagName('input');
@@ -318,7 +325,7 @@
                 justify-content: center;
                  display: flex;
             }
-            .roll,#new {
+            #roll,#new {
                 width: 5em;
                 height: 3em;
                 text-align: center;
@@ -328,8 +335,9 @@
                 color: #000;
                 font-weight: bold;
             }
-            .roll {
-                height: 5em;
+            #roll {
+                height: 6em;
+                width: 6em;
                 border-radius: .5em;
                 margin: 2em 0.75em 1em 0.75em;
             }
@@ -373,7 +381,7 @@
                 width: 15em;
             }
             #scores tr th, #scores tr td {
-                padding: 0.25em 0 0.25em 0.25em;
+                padding: 0.2em 0 0.2em 0.2em;
                 text-align: center;
             }
             #scores tr td {
@@ -388,6 +396,15 @@
                 text-align: center;
                 width: 2em;
                 border-radius: 0.25em;
+            }
+            #scores tr td input[type=checkbox]{
+                margin-left: 1em;
+            }
+            #scores tr td input[type=checkbox]:disabled {
+                display: none;
+            }
+            #scores tr td input.scoreOption {
+                background-color: lightgreen;
             }
             #scores input[set="true"]{
                 background-color: transparent;
