@@ -1,0 +1,155 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: lightslategray;
+    font-family:Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#container {
+    display: flex;
+    width: 100%;
+    max-width: 415px;
+    height: auto;
+    padding: 0.25em;
+    margin: auto;
+    background-color: #ccc;
+    box-shadow: 0em 0em 1em #666;
+}
+.left {
+    flex: 4;
+}
+.right {
+    flex: 1;
+    padding: 0.5em;
+    justify-content: center;
+     display: flex;
+}
+#roll,#new {
+    width: 5em;
+    height: 3em;
+    text-align: center;
+    border: 1px solid #666;
+    border-radius: 0.25em;
+    margin: 1em 0.75em;
+    color: #000;
+    font-weight: bold;
+}
+#roll {
+    height: 6em;
+    width: 6em;
+    border-radius: .5em;
+    margin: 2em 0.75em 1em 0.75em;
+}
+#new {
+    width: 10em;
+    margin: 1em auto;
+}
+#current {
+    background-color: green;
+}
+#current input {
+    width: 4em;
+    height: 4em;
+    text-align: center;
+    border: 2px solid white;
+    background-color: red;
+    color: transparent;
+    border-radius: 1em;
+    font-weight: bold;
+    display:block;
+    float:left;
+    clear:both;
+    margin: 0.7em 1.5em;
+    outline: none !important;
+    user-select: none;
+}
+#current input.hold {
+    border-color: black;
+    background-color:darkred;
+}
+#scores tr {
+    background: linear-gradient(90deg,transparent,rgba(255,255,255,0.5));
+}
+#scores tr.clear {
+    background-color: transparent;
+}
+#scores tr th {
+    font-size: 0.8em;
+    font-weight: normal;
+    width: 15em;
+}
+#scores tr th, #scores tr td {
+    padding: 0.2em 0 0.2em 0.2em;
+    text-align: center;
+}
+#scores tr td {
+    width: 32%;
+}
+#scores tr th {
+    text-align: left;
+}
+#scores tr td input {
+    background-color: rgba(255,255,255,0.75);
+    border: none;
+    text-align: center;
+    width: 2em;
+    border-radius: 0.25em;
+}
+#scores tr td input[type=checkbox]{
+    margin-left: 1em;
+}
+#scores tr td input[type=checkbox]:disabled {
+    display: none;
+}
+#scores tr td input.scoreOption {
+    background-color: lightgreen;
+}
+#scores input[set="true"]{
+    background-color: transparent;
+}
+.die_1 {
+    background: radial-gradient(white,white 15%,black 16%,gray 17%,transparent 18%,transparent);
+}
+.die_2 {
+    background: radial-gradient(circle at  20% 20%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
+                radial-gradient(circle at  80% 80%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent);
+}
+.die_3 {
+    background: radial-gradient(circle at  20% 20%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
+                radial-gradient(white,white 15%,black 16%,gray 17%,transparent 17%,transparent),
+                radial-gradient(circle at  80% 80%, white,white 10%, black 11%,gray 12%,transparent 12%,transparent);
+}
+.die_4 {
+    background: radial-gradient(circle at  20% 20%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
+                radial-gradient(circle at  80% 20%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
+                radial-gradient(circle at  20% 80%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
+                radial-gradient(circle at  80% 80%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent);
+}
+.die_5 {
+    background: radial-gradient(circle at  20% 20%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
+                radial-gradient(circle at  80% 20%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
+                radial-gradient(white,white 15%,black 16%,gray 17%,black 17%,gray 18%,transparent 18%,transparent),
+                radial-gradient(circle at  20% 80%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
+                radial-gradient(circle at  80% 80%, white,white 10%,gray 11%, black 12%, transparent 12%,transparent);
+}
+.die_6 {
+    background: radial-gradient(circle at  20% 20%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
+                radial-gradient(circle at  80% 20%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
+                radial-gradient(circle at 20% 50%, white,white 12%,black 13%,gray 14%,transparent 14%,transparent),
+                radial-gradient(circle at 80% 50%, white,white 12%,black 13%,gray 14%,transparent 14%,transparent),
+                radial-gradient(circle at  20% 80%, white,white 10%,black 11%,gray 12%,transparent 12%,transparent),
+                radial-gradient(circle at  80% 80%, white,white 10%,black 11%, gray 12%,transparent 12%,transparent);
+}
+@keyframes rolling {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(720deg);}
+}
+.rolling {
+    animation-name: rolling;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+}
