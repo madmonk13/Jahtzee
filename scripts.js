@@ -3,6 +3,9 @@ var scoreChoice = 0;
 var yahtzeeBonus = 0;
 var limitRolls = 3;
 var score = 0;
+
+const rollDice = new Audio('roll.mp3');
+
 function resetGame(confirm){
     if ( confirm === true && score != 0 ){
         if ( window.confirm("Abandon current game?") === false ){
@@ -55,6 +58,7 @@ function isDone(){
     document.getElementById("roll").setAttribute("disabled","true");
 }
 function roll(){
+    rollDice.play();
     if ( totalRolls == limitRolls ){
         return;
     }
